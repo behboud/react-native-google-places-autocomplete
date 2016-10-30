@@ -88,6 +88,7 @@ const GooglePlacesAutocomplete = React.createClass({
     enableEmptySections: React.PropTypes.bool,
     renderDescription: React.PropTypes.func,
     renderRow: React.PropTypes.func,
+    horizontalRows: React.PropTypes.bool,
   },
 
   getDefaultProps() {
@@ -123,7 +124,8 @@ const GooglePlacesAutocomplete = React.createClass({
       filterReverseGeocodingByTypes: [],
       predefinedPlacesAlwaysVisible: false,
       enableEmptySections: true,
-      listViewDisplayed: 'auto'
+      listViewDisplayed: 'auto',
+      horizontalRows:true
     };
   },
 
@@ -519,7 +521,7 @@ const GooglePlacesAutocomplete = React.createClass({
       <ScrollView
         style={{ flex: 1 }}
         keyboardShouldPersistTaps={true}
-        horizontal={true}
+        horizontal={this.props.horizontalRows}
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}>
         <TouchableHighlight
